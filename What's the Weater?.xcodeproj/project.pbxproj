@@ -13,6 +13,9 @@
 		7B549C311B09BF050049AC68 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B549C301B09BF050049AC68 /* Images.xcassets */; };
 		7B549C341B09BF050049AC68 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B549C321B09BF050049AC68 /* LaunchScreen.xib */; };
 		7B549C401B09BF050049AC68 /* What_s_the_Weater_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549C3F1B09BF050049AC68 /* What_s_the_Weater_Tests.swift */; };
+		7B549C501B2E6B270049AC68 /* HTMLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549C4D1B2E6B270049AC68 /* HTMLNode.swift */; };
+		7B549C511B2E6B270049AC68 /* HTMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B549C4E1B2E6B270049AC68 /* HTMLParser.swift */; };
+		7B549C531B2E73570049AC68 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B549C521B2E73570049AC68 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,10 @@
 		7B549C391B09BF050049AC68 /* What's the Weater?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "What's the Weater?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B549C3E1B09BF050049AC68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B549C3F1B09BF050049AC68 /* What_s_the_Weater_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = What_s_the_Weater_Tests.swift; sourceTree = "<group>"; };
+		7B549C4D1B2E6B270049AC68 /* HTMLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLNode.swift; sourceTree = "<group>"; };
+		7B549C4E1B2E6B270049AC68 /* HTMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTMLParser.swift; sourceTree = "<group>"; };
+		7B549C4F1B2E6B270049AC68 /* Swift-HTML-Parser-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-HTML-Parser-Bridging-Header.h"; sourceTree = "<group>"; };
+		7B549C521B2E73570049AC68 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B549C531B2E73570049AC68 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +67,7 @@
 		7B549C1B1B09BF050049AC68 = {
 			isa = PBXGroup;
 			children = (
+				7B549C521B2E73570049AC68 /* libxml2.dylib */,
 				7B549C261B09BF050049AC68 /* What's the Weater? */,
 				7B549C3C1B09BF050049AC68 /* What's the Weater?Tests */,
 				7B549C251B09BF050049AC68 /* Products */,
@@ -77,6 +86,9 @@
 		7B549C261B09BF050049AC68 /* What's the Weater? */ = {
 			isa = PBXGroup;
 			children = (
+				7B549C4D1B2E6B270049AC68 /* HTMLNode.swift */,
+				7B549C4E1B2E6B270049AC68 /* HTMLParser.swift */,
+				7B549C4F1B2E6B270049AC68 /* Swift-HTML-Parser-Bridging-Header.h */,
 				7B549C291B09BF050049AC68 /* AppDelegate.swift */,
 				7B549C2B1B09BF050049AC68 /* ViewController.swift */,
 				7B549C2D1B09BF050049AC68 /* Main.storyboard */,
@@ -213,7 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B549C2C1B09BF050049AC68 /* ViewController.swift in Sources */,
+				7B549C511B2E6B270049AC68 /* HTMLParser.swift in Sources */,
 				7B549C2A1B09BF050049AC68 /* AppDelegate.swift in Sources */,
+				7B549C501B2E6B270049AC68 /* HTMLNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +354,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "What's the Weater?/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift-HTML-Parser-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -350,9 +370,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = "What's the Weater?/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift-HTML-Parser-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +435,7 @@
 				7B549C451B09BF050049AC68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7B549C461B09BF050049AC68 /* Build configuration list for PBXNativeTarget "What's the Weater?Tests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +444,7 @@
 				7B549C481B09BF050049AC68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
